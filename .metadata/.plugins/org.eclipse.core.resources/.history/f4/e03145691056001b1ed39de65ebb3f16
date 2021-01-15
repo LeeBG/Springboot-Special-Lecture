@@ -1,0 +1,8 @@
+package com.cos.person.web;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController {		//사용자 요청마다
+
+}

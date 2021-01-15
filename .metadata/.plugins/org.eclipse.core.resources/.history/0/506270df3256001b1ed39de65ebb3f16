@@ -1,0 +1,43 @@
+package com.cos.person.web;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController { // 사용자 요청마다
+
+	// http://localhost:8080/user
+	@GetMapping("/user")
+	public void findAll() {
+		System.out.println("findAll()");
+	}
+	
+	//http://localhost:8080/user/1
+	@GetMapping("/user/{id}")		//들어오는 id값에 바인딩
+	public void findById(@PathVariable int id) {	//주소에 값을 바인딩(int)로 받는다.
+		System.out.println("findById()");
+	}
+	
+	// http://localhost:8080/user
+	@PostMapping("/user")			//http메서드가 다름 POST방식
+	//x-www-form-urlencoded
+	public void save(String username, String password, String phone) {
+		System.out.println("save()");
+	}
+	
+	// http://localhost:8080/user/2
+	@DeleteMapping("/user/{id}")
+	public void delete(@PathVariable int id) {	//주소에 값을 바인딩(int)로 받는다.
+		System.out.println("delete()");
+	}
+	
+	// http://localhost:8080/user/2
+	@PutMapping("/user/{id}")
+public void update(@PathVariable int id,String password, String phone) {	//주소에 값을 바인딩(int)로 받는다.
+		System.out.println("update()");
+	}
+}
